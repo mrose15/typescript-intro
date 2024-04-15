@@ -41,3 +41,20 @@ const enum Size {
 }
 let mySize: Size = Size.Medium;
 console.log(mySize);
+
+/** Functions **/
+/*
+- all parameters as well as the return type should be properly annotated
+- question mark makes param optional but default assignment is better
+*/
+function calculateTax(income: number, taxYear = 2022): number {
+  //specifies return type
+  if (taxYear < 2022) return income * 1.2;
+  // Function lacks ending return statement and return type does not include 'undefined'.
+  // This means that undefined is not included in the return type 'number'
+
+  // this line resolves not all code paths return a value
+  return income * 1.3;
+}
+// need exact number of arguments as params
+calculateTax(10_000);
