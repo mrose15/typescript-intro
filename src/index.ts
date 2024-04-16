@@ -143,3 +143,14 @@ let quantity: Quantity = 100;
 type Metric = "cm" | "inch";
 
 let metric: Metric = "cm";
+
+/** nullable types **/
+/*
+ - TS is very strict about using null and undefined values b/c they're a common sources of bugs
+*/
+function greet(name: string | null | undefined) {
+  if (name) console.log(name.toUpperCase());
+  else console.log("Hola!");
+}
+
+greet(null); // cannot call this method on null or undefined object due to strictNullChecks in tsconfig, turned on by default when strict is set to true
