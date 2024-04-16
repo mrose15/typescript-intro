@@ -64,11 +64,30 @@ calculateTax(10_000);
 - TS will imply the shape of an object by what is preexisting in that object
 - not a good idea to use ? in case attribute doesn't exist, make sure it conceptually makes sense, ie: all employees have a name
 */
-let employee: {
+// let employee: {
+//   readonly id: number; // readonly means is cannot be modified
+//   name: string;
+//   retire: (date: Date) => void; //we don't want to return anything so we return void
+// } = {
+//   id: 1,
+//   name: "Michele",
+//   retire: (date: Date) => {
+//     console.log(date);
+//   },
+// };
+
+/* type aliases */
+/*
+ - the above is very verbose and not reusable or dry
+*/
+
+type Employee = {
   readonly id: number; // readonly means is cannot be modified
   name: string;
-  retire: (date: Date) => void; //we don't want to return anything so we return void
-} = {
+  retire: (date: Date) => void;
+};
+
+let employee: Employee = {
   id: 1,
   name: "Michele",
   retire: (date: Date) => {
