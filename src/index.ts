@@ -154,3 +154,26 @@ function greet(name: string | null | undefined) {
 }
 
 greet(null); // cannot call this method on null or undefined object due to strictNullChecks in tsconfig, turned on by default when strict is set to true
+
+/** optional chaining **/
+type Customer = {
+  // can make birthday property optional
+  birthday?: Date;
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+  return id === 0 ? null : { birthday: new Date() };
+}
+
+let customer = getCustomer(1);
+// can use this but can use Optional property access operator
+//if (customer !== null && customer !== undefined) console.log(customer.birthday);
+console.log(customer?.birthday?.getFullYear());
+
+//Optional element access operator
+// useful for arrays
+// customers?.[0]
+
+// Optional call
+let log: any = null;
+log?.("a");
