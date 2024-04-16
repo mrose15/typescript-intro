@@ -130,3 +130,16 @@ let textBox: UIWidget = {
   drag: () => {},
   resize: () => {},
 };
+
+/** literal types **/
+/*
+ - limit the values we can assign to a variable
+*/
+// Literal (exact or specific value)
+type Quantity = 50 | 100;
+
+let quantity: Quantity = 100;
+
+type Metric = "cm" | "inch";
+
+let metric: Metric = "cm";
